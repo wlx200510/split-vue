@@ -1,0 +1,19 @@
+{
+  "name": "split",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "split": "node ./script/split.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dayjs": "^1.7.8",
+    "inquirer": "^6.2.1",
+    "log-symbols": "^2.2.0",
+    "rimraf": "^2.6.2"
+  }
+}
