@@ -68,6 +68,13 @@ function getPrefixStr(type, data) {
     `@since ${time}\n` +
     "-->\n" +
     "\n"
+   case 'index':
+    return "/**\n" +
+    ` * @file index.js\n` +
+    ` * @author ${data.email}\n` +
+    ` * @since ${time}\n` +
+    " */\n" +
+    "\n"
  }
 }
 
@@ -134,7 +141,7 @@ function handleFile(result) {
 
 function generateIndex(basic) { 
   const indexText = `export * from './${basic.name}.vue'\n`
-  const jsContent = getPrefixStr('js', basic) + indexText
+  const jsContent = getPrefixStr('index', basic) + indexText
   fs.writeFile(`${filePath}/${basic.name}/index.js`, jsContent, err => {
     if (err) {
       console.log(symbols.error, 'index文件生成失败')
