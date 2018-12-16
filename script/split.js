@@ -128,7 +128,20 @@ function handleFile(result) {
       process.exit(0)
      }
    })
+   generateIndex(result)
  })
+}
+
+function generateIndex(basic) { 
+  const indexText = `export * from './${basic.name}.vue'\n`
+  const jsContent = getPrefixStr('js', basic) + indexText
+  fs.writeFile(`${filePath}/${basic.name}/index.js`, jsContent, err => {
+    if (err) {
+      console.log(symbols.error, 'index文件生成失败')
+    } else {
+      console.log(symbols.success, `index文件已生成`)
+    }
+  })
 }
 
 inquirer.prompt(getBaseInfo).then((answers) => {
